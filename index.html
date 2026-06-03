@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חופשת בנות חי ראובן | סרדיניה ורומא</title>
+    
+    <!-- Google Fonts for Hebrew -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght=300;400;600;700;800&family=Rubik:wght=400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                        rubik: ['Rubik', 'sans-serif'],
+                        calibri: ['Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Leaflet.js CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #f4f7fa;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased font-light">
+
+    <!-- ENLARGED TOP NAVBAR WITH CALIBRI FONT -->
+    <header class="bg-gradient-to-r from-sky-900 via-cyan-700 to-sky-900 text-white shadow-2xl border-b border-sky-950 font-calibri">
+        <div class="max-w-7xl mx-auto px-6 py-8 sm:px-8 lg:px-10 flex flex-col lg:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-5">
+                <div class="bg-white/10 p-4 rounded-2xl border border-white/20 backdrop-blur-md shadow-inner">
+                    <i class="fa-solid fa-plane-up text-3xl text-sky-300"></i>
+                </div>
+                <div>
+                    <span class="text-sm font-bold tracking-widest text-sky-300 uppercase block mb-1">P.T.S Tourism & Aviation Ltd</span>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">חופשת בנות חי ראובן ❤️ | סרדיניה ורומא</h1>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-4 text-base">
+                <div class="bg-white/5 border border-white/10 px-5 py-3 rounded-2xl flex items-center gap-3 backdrop-blur-sm">
+                    <i class="fa-solid fa-users text-xl text-sky-300"></i>
+                    <div>
+                        <span class="text-xs text-slate-300 block font-normal">נוסעות:</span>
+                        <span class="font-bold text-lg">אורית, מאי בתיה ואריאל</span>
+                    </div>
+                </div>
+                <div class="bg-white/5 border border-white/10 px-5 py-3 rounded-2xl flex items-center gap-3 backdrop-blur-sm">
+                    <i class="fa-solid fa-calendar-days text-xl text-sky-300"></i>
+                    <div>
+                        <span class="text-xs text-slate-300 block font-normal">תאריכים:</span>
+                        <span class="font-bold text-lg">25.06.2026 - 02.07.2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+        
+        <!-- LIGHT & CLEAN CLIENT PREMIUM SUMMARY MODULE (STAYS FIXED AT TOP) -->
+        <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-md overflow-hidden relative mb-8">
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-100 pb-6 mb-6 gap-4">
+                <div>
+                    <h3 class="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-receipt text-sky-600"></i>
+                        <span class="font-bold">סיכום תוכנית פרימיום ותנאי הצעה</span>
+                    </h3>
+                    <p class="text-slate-500 text-sm mt-1">פירוט מרכיבי החבילה הסגורה ועלויות עבור משפחת חי ראובן</p>
+                </div>
+                <div class="bg-gradient-to-br from-sky-50 to-cyan-50/50 px-6 py-4 rounded-2xl border border-sky-100/70 text-left md:text-right w-full md:w-auto shadow-sm">
+                    <span class="text-xs font-semibold tracking-wider text-sky-700 block uppercase">מחיר חבילה כולל ללקוח</span>
+                    <span class="text-3xl font-black text-sky-900 font-sans mt-0.5 block">€14,850</span>
+                </div>
+            </div>
+
+            <h4 class="text-sky-800 font-bold text-base mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-sky-600 text-sm"></i>
+                המחיר מבוסס על 3 נוסעים וכולל את כל השירותים הבאים:
+            </h4>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600">
+                <div class="bg-slate-50/60 border border-slate-100 p-4 rounded-xl flex items-start gap-3 hover:bg-slate-50 hover:border-slate-200 transition-colors">
+                    <div class="bg-sky-100 text-sky-700 p-2 rounded-lg shrink-0"><i class="fa-solid fa-ticket"></i></div>
+                    <div>
+                        <strong class="text-slate-900 block text-base mb-0.5">כרטיסי טיסה בינלאומיים ופנים</strong>
+                        טיסות הלוך ושוב מתל אביב (TLV) כולל טיסת פנים ייעודית מאיטליה מאולביה (OLB) לרומא פיומיצ'ינו (FCO). המחיר כולל הושבה מוגדרת מראש ומזוודות כבוד מלאות לכל הנוסעים.
+                    </div>
+                </div>
+
+                <div class="bg-slate-50/60 border border-slate-100 p-4 rounded-xl flex items-start gap-3 hover:bg-slate-50 hover:border-slate-200 transition-colors">
+                    <div class="bg-sky-100 text-sky-700 p-2 rounded-lg shrink-0"><i class="fa-solid fa-van-shuttle"></i></div>
+                    <div>
+                        <strong class="text-slate-900 block text-base mb-0.5">מערך העברות פרטי ומלא</strong>
+                        רכבי העברות פרטיים וממוזגים (מלווים בנהגים מקצועיים) לכל אורך התחנות: משדה התעופה בסרדיניה למלון, מהמלון לשדה באולביה, וכן העברות כניסה ויציאה ברומא בין נמל התעופה למלון במרכז העיר.
+                    </div>
+                </div>
+
+                <div class="bg-slate-50/60 border border-slate-100 p-4 rounded-xl flex items-start gap-3 hover:bg-slate-50 hover:border-slate-200 transition-colors">
+                    <div class="bg-sky-100 text-sky-700 p-2 rounded-lg shrink-0"><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <div>
+                        <strong class="text-slate-900 block text-base mb-0.5">4 לילות בסרדיניה - רזורט יוקרה</strong>
+                        שהות יוקרתית של 4 לילות מלאים ב-<strong>Resort Valle dell’Erica Thalasso & SPA</strong> על בסיס לינה וארוחת בוקר (Bed and Breakfast). אירוח בסוויטה משפחתית מרווחת עם נוף ישיר לים.
+                    </div>
+                </div>
+
+                <div class="bg-slate-50/60 border border-slate-100 p-4 rounded-xl flex items-start gap-3 hover:bg-slate-50 hover:border-slate-200 transition-colors">
+                    <div class="bg-sky-100 text-sky-700 p-2 rounded-lg shrink-0"><i class="fa-solid fa-building-columns"></i></div>
+                    <div>
+                        <strong class="text-slate-900 block text-base mb-0.5">3 לילות ברומא - מלון בוטיק מרכזי</strong>
+                        שהות של 3 לילות בלב רומא ב-<strong>Poesis Experience Hotel</strong> הממוקם במיקום מושלם ליד המדרגות הספרדיות, על בסיס לינה וארוחת בוקר (Bed and Breakfast) בסוויטה מפוארת.
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50/40 border border-emerald-100/70 p-4 rounded-xl flex items-start gap-3 hover:bg-emerald-50/70 hover:border-emerald-200 transition-colors md:col-span-2">
+                    <div class="bg-emerald-100 text-emerald-800 p-2 rounded-lg shrink-0"><i class="fa-solid fa-kitchen-set"></i></div>
+                    <div>
+                        <strong class="text-slate-900 block text-base mb-0.5">סדנת בישול איטלקית פרטית (01/07)</strong>
+                        חוויה קולינרית פרטית סגורה בסטודיו השף עמנואל (Antica Cucina / Pastificio Faini) הכוללת למידת הכנת פסטה טרייה מאפס, חומרי גלם מקומיים מובחרים, יין חופשי וארוחת צהריים מלאה של המנות שבושלו.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- DAY TABS -->
+        <nav class="mb-6 flex overflow-x-auto gap-2 p-1 bg-slate-200/70 rounded-2xl custom-scrollbar">
+            <button onclick="switchDay(1)" id="tab-1" class="tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 bg-white text-sky-950 shadow-sm border border-slate-200/50">
+                <span class="block text-xs text-sky-600 font-normal">יום 1</span>
+                <span class="font-bold">25.06 | הגעה לסרדיניה</span>
+            </button>
+            <button onclick="switchDay(2)" id="tab-2" class="tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 text-slate-600 hover:text-slate-900 hover:bg-white/50">
+                <span class="block text-xs text-slate-400 font-normal">יום 2</span>
+                <span class="font-bold">26.06 | נופש וחוף</span>
+            </button>
+            <button onclick="switchDay(3)" id="tab-3" class="tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 text-slate-600 hover:text-slate-900 hover:bg-white/50">
+                <span class="block text-xs text-slate-400 font-normal">יום 3</span>
+                <span class="font-bold">27.06 | שייט יאכטה פרטי</span>
+            </button>
+            <button onclick="switchDay(4)" id="tab-4" class="tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 text-slate-600 hover:text-slate-900 hover:bg-white/50">
+                <span class="block text-xs text-slate-400 font-normal">יום 4</span>
+                <span class="font-bold">28.06 | סיור ובילוי</span>
+            </button>
+            <button onclick="switchDay(5)" id="tab-5" class="tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 text-slate-600 hover:text-slate-900 hover:bg-white/50">
+                <span class="block text-xs text-slate-400 font-normal">יום 5</span>
+                <span class="font-bold">29.06 | מעבר לרומא</span>
+            </button>
+            <button onclick="switchDay(6)" id="tab-6" class="tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 text-slate-600 hover:text-slate-900 hover:bg-white/50">
+                <span class="block text-xs text-slate-400 font-normal">יום 6</span>
+                <span class="font-bold">30.06 | רומא העתיקה</span>
+            </button>
+            <button onclick="switchDay(7)" id="tab-7" class="tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 text-slate-600 hover:text-slate-900 hover:bg-white/50">
+                <span class="block text-xs text-slate-400 font-normal">יום 7</span>
+                <span class="font-bold">01.07 | סדנת בישול</span>
+            </button>
+            <button onclick="switchDay(8)" id="tab-8" class="tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 text-slate-600 hover:text-slate-900 hover:bg-white/50">
+                <span class="block text-xs text-slate-400 font-normal">יום 8</span>
+                <span class="font-bold">02.07 | טיסה חזור</span>
+            </button>
+        </nav>
+
+        <!-- LAYOUT -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            
+            <!-- TIMELINE PANEL -->
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-6">
+                    <div>
+                        <h2 id="currentDayTitle" class="text-2xl font-bold text-slate-900">טוען...</h2>
+                        <p id="currentDaySubtitle" class="text-base text-sky-600 font-medium mt-0.5"><i class="fa-solid fa-location-dot ml-1"></i> טוען מיקום...</p>
+                    </div>
+                    <span id="currentDayBadge" class="bg-sky-50 text-sky-700 border border-sky-200 text-sm px-3 py-1 rounded-full font-bold">-</span>
+                </div>
+
+                <div id="timelineContainer" class="relative border-r-2 border-slate-100 pr-6 mr-2 space-y-8">
+                    <!-- Dynamic events load here -->
+                </div>
+            </div>
+
+            <!-- MAP PANEL -->
+            <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-6">
+                <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+                    <div class="p-4 bg-slate-50 border-b border-slate-200/60 flex justify-between items-center">
+                        <span class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot text-sky-600"></i>
+                            מפת מיקומים דינמית
+                        </span>
+                    </div>
+                    <div id="mapViewport" class="h-[380px] w-full bg-slate-100 relative z-10"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let activeDay = 1;
+        let mapInstance = null;
+        let activeMarkers = [];
+
+        const itineraryData = {
+            1: {
+                title: "יום 1: טיסה בינלאומית והגעה לרזורט בסרדיניה",
+                subtitle: "נמל תעופה קליארי (CAG) ← רזורט Valle dell’Erica",
+                badge: "טיסה והעברה ראשונית",
+                mapCenter: [41.2295, 9.3512],
+                mapZoom: 9,
+                locations: [
+                    { name: "Resort Valle dell’Erica Thalasso & SPA", coords: [41.2295, 9.3512], desc: "Resort Valle dell’Erica" }
+                ],
+                timeline: [
+                    { 
+                        time: "07:00", 
+                        title: "טיסה בינלאומית לראשונה לסרדיניה", 
+                        desc: `<div class="bg-slate-100 p-4 rounded-xl border border-slate-200/60 text-sm space-y-1 font-sans text-slate-700">
+                                <div><strong>חברת תעופה וקוד טיסה:</strong> אל על | LY5487</div>
+                                <div><strong>נתיב:</strong> תל אביב (TLV) ← קליארי (CAG)</div>
+                                <div><strong>שעת המראה:</strong> 07:00 | <strong>שעת נחיתה:</strong> 09:55</div>
+                               </div>`,
+                        icon: "fa-plane-arrival" 
+                    },
+                    { 
+                        time: "10:30", 
+                        title: "העברה פרטית ארוכה לרזורט", 
+                        desc: `<div class="bg-slate-100 p-4 rounded-xl border border-slate-200/60 text-sm space-y-1 font-sans text-slate-700">
+                                <div><strong>סוג שירות:</strong> העברה פרטית ממודרכת (Arrival Transfer)</div>
+                                <div><strong>מסלול:</strong> נמל תעופה קליארי (CAG) ← Resort Valle dell’Erica</div>
+                                <div><strong>סטטוס:</strong> מאושר לקבוצת בנות חי ראובן</div>
+                               </div>`,
+                        icon: "fa-car-side" 
+                    },
+                    { 
+                        time: "14:00", 
+                        title: "צ'ק-אין וקבלת חדרים ברזורט", 
+                        desc: `<div class="bg-sky-50/50 p-4 rounded-xl border border-sky-100 text-sm space-y-1.5 font-sans text-slate-700">
+                                <div><strong class="text-base text-sky-950 block mb-1">שם המלון: <a href="https://www.resortvalledellerica.com/" target="_blank" class="text-sky-600 underline hover:text-sky-800">Resort Valle dell’Erica Thalasso & SPA</a></strong></div>
+                                <div><strong>תאריכי שהייה:</strong> 25.06.2026 - 29.06.2026 (4 לילות)</div>
+                                <div><strong>כתובת:</strong> SP98, 07028 Santa Teresa Gallura SS, Sardinia, Italy</div>
+                                <div><strong>טלפון קבלה:</strong> +39 0789 790300</div>
+                                <div><strong>סוג חדר מוזמן:</strong> Junior Family Suite Explicit Licciola sea view</div>
+                               </div>
+                               <div class="grid grid-cols-2 gap-2 mt-3">
+                                <figure class="m-0">
+                                    <img src="ValledellEricaRoom.jpg" alt="ValledellEricaRoom.jpg" class="w-full h-32 object-cover rounded-lg bg-slate-200"/>
+                                    <figcaption class="text-[10px] text-slate-400 mt-1 text-center">ValledellEricaRoom.jpg</figcaption>
+                                </figure>
+                                <figure class="m-0">
+                                    <img src="ValledellEricasea.jpg" alt="ValledellEricasea.jpg" class="w-full h-32 object-cover rounded-lg bg-slate-200"/>
+                                    <figcaption class="text-[10px] text-slate-400 mt-1 text-center">ValledellEricasea.jpg</figcaption>
+                                </figure>
+                               </div>`, 
+                        icon: "fa-hotel" 
+                    }
+                ]
+            },
+            2: { title: "יום 2: סרדיניה - נופש חופים ומנוחה", subtitle: "רזורט Valle dell’Erica", badge: "נופש חופשי", mapCenter: [41.2295, 9.3512], mapZoom: 12, locations: [], timeline: [{ time: "09:00", title: "ארוחת בוקר ובילוי במתקני ה-Thalasso & SPA", desc: "זמן חופשי להנאה ממתקני המלון היוקרתיים, החופים הפרטיים והבריכות המקומיות.", icon: "fa-sun" }] },
+            3: { 
+                title: "יום 3: שייט יאכטה פרטי יוקרתי", 
+                subtitle: "איסוף מרציף Valle dell'Erica", 
+                badge: "אירוע VIP חברה", 
+                mapCenter: [41.2295, 9.3512], 
+                mapZoom: 11, 
+                locations: [], 
+                timeline: [
+                    { 
+                        time: "10:00", 
+                        title: "איסוף לשייט יום מלא - יאכטה פרטית RIZZARDI INCREDIBLE 45", 
+                        desc: `<div class="bg-sky-50/70 border border-sky-100 p-4 rounded-xl text-sm space-y-2 font-sans text-slate-700">
+                                <div class="font-bold text-slate-900 mb-2">פרטי הזמנת היאכטה:</div>
+                                <div class="grid grid-cols-1 gap-1 text-xs">
+                                    <div>• <strong>נוסע ראשי:</strong> חי ראובן אורית</div>
+                                    <div>• <strong>מספר נוסעים:</strong> 3 משתתפים</div>
+                                    <div>• <strong>תאריך שירות:</strong> 27 ביוני</div>
+                                    <div>• <strong>כלי שייט:</strong> Rizzardi Incredible 45</div>
+                                    <div>• <strong>נקודת איסוף:</strong> Valle dell'Erica</div>
+                                </div>
+                               </div>
+                               <div class="grid grid-cols-2 gap-2 mt-3">
+                                <figure class="m-0">
+                                    <img src="rizzardipic.jpg" alt="rizzardipic.jpg" class="w-full h-32 object-cover rounded-lg bg-slate-200"/>
+                                    <figcaption class="text-[10px] text-slate-400 mt-1 text-center">rizzardipic.jpg</figcaption>
+                                </figure>
+                                <figure class="m-0">
+                                    <img src="rizzardipic2.jpg" alt="rizzardipic2.jpg" class="w-full h-32 object-cover rounded-lg bg-slate-200"/>
+                                    <figcaption class="text-[10px] text-slate-400 mt-1 text-center">rizzardipic2.jpg</figcaption>
+                                </figure>
+                               </div>`, 
+                        icon: "fa-ship" 
+                    }
+                ] 
+            },
+            4: { title: "יום 4: סיור חוף ובילוי ערב סגור", subtitle: "קוסטה סמרלדה", badge: "סיור עצמאי", mapCenter: [41.2295, 9.3512], mapZoom: 11, locations: [], timeline: [{ time: "11:00", title: "הכנות לקראת המעבר לרומא מחר", desc: "יום אחרון לחופי סרדיניה המרהיבים לפני הטיסה לעיר הבירה.", icon: "fa-suitcase" }] },
+            5: {
+                title: "יום 5: טיסת פנים ומעבר לרומא וערב קולינרי",
+                subtitle: "סרדיניה (OLB) ← רומא (FCO)",
+                badge: "טיסת פנים וערב ברומא",
+                mapCenter: [41.9056, 12.4795],
+                mapZoom: 12,
+                locations: [
+                    { name: "Poesis Experience Hotel", coords: [41.9056, 12.4795], desc: "מלון פואסיס אקספיריאנס" },
+                    { name: "Taverna Trilussa", coords: [41.8906, 12.4697], desc: "מסעדת טברנה טרילוסה" }
+                ],
+                timeline: [
+                    { 
+                        time: "09:30", 
+                        title: "העברה פרטית יציאה מהרזורט", 
+                        desc: `<div class="bg-slate-100 p-4 rounded-xl border border-slate-200/60 text-sm font-sans text-slate-700">
+                                <div><strong>סוג שירות:</strong> העברה פרטית מודרכת (Departure Transfer)</div>
+                                <div><strong>נתיב:</strong> איסוף מ-Resort Valle dell’Erica ← נמל תעופה אולביה (OLB)</div>
+                               </div>`,
+                        icon: "fa-car" 
+                    },
+                    { 
+                        time: "13:20", 
+                        title: "טיסת פנים לרומא", 
+                        desc: `<div class="bg-slate-100 p-4 rounded-xl border border-slate-200/60 text-sm space-y-1 font-sans text-slate-700">
+                                <div><strong>חברת תעופה וקוד טיסה:</strong> XZ2612</div>
+                                <div><strong>נתיב:</strong> אולביה (OLB) ← רומא פיומיצ'ינו (FCO)</div>
+                                <div><strong>שעת המראה:</strong> 13:20 | <strong>שעת נחיתה:</strong> 14:20</div>
+                               </div>`,
+                        icon: "fa-plane" 
+                    },
+                    { 
+                        time: "14:45", 
+                        title: "העברה פרטית נכנסת ברומא", 
+                        desc: `<div class="bg-slate-100 p-4 rounded-xl border border-slate-200/60 text-sm font-sans text-slate-700">
+                                <div><strong>סוג שירות:</strong> העברה פרטית מודרכת (Arrival Transfer)</div>
+                                <div><strong>מסלול:</strong> נמל תעופה FCO ← Poesis Experience Hotel (מרכז רומא)</div>
+                               </div>`,
+                        icon: "fa-van-shuttle" 
+                    },
+                    { 
+                        time: "15:30", 
+                        title: "צ'ק-אין וקבלת חדרים ברומא", 
+                        desc: `<div class="bg-sky-50/50 p-4 rounded-xl border border-sky-100 text-sm space-y-1.5 font-sans text-slate-700">
+                                <div><strong class="text-base text-sky-950 block mb-1">שם המלון: <a href="https://www.poesishotel.com/" target="_blank" class="text-sky-600 underline hover:text-sky-800">Poesis Experience Hotel</a></strong></div>
+                                <div><strong>תאריכי שהייה:</strong> 29.06.2026 - 02.07.2026 (3 לילות)</div>
+                                <div><strong>כתובת:</strong> Via del Babuino, 144, 00187 Roma RM, Italy</div>
+                                <div><strong>סוג חדר מוזמן:</strong> Suite</div>
+                               </div>
+                               <div class="grid grid-cols-2 gap-2 mt-3">
+                                <figure class="m-0">
+                                    <img src="PoesisHotel2.jpg" alt="PoesisHotel2.jpg" class="w-full h-32 object-cover rounded-lg bg-slate-200"/>
+                                    <figcaption class="text-[10px] text-slate-400 mt-1 text-center">PoesisHotel2.jpg</figcaption>
+                                </figure>
+                                <figure class="m-0">
+                                    <img src="Poesissuite.jpg" alt="Poesissuite.jpg" class="w-full h-32 object-cover rounded-lg bg-slate-200"/>
+                                    <figcaption class="text-[10px] text-slate-400 mt-1 text-center">Poesissuite.jpg</figcaption>
+                                </figure>
+                               </div>`, 
+                        icon: "fa-hotel" 
+                    },
+                    { 
+                        time: "22:00", 
+                        title: "הזמנת מקום לארוחת ערב - TAVERNA TRILUSSA", 
+                        desc: `<div class="bg-emerald-50/60 border border-emerald-100 p-4 rounded-xl text-sm font-sans text-slate-700">
+                                <div><strong>מיקום:</strong> TAVERNA TRILUSSA, רומא</div>
+                                <div><strong>פרטי הזמנה:</strong> 3 אנשים | שעה 22:00 | <strong>הושבה:</strong> בפנים (Inside)</div>
+                               </div>`, 
+                        icon: "fa-utensils" 
+                    }
+                ]
+            },
+            6: { title: "יום 6: רומא - סיור עירוני עצמאי וקניות", subtitle: "מרכז העיר רומא", badge: "רומא תרבות וקניות", mapCenter: [41.9056, 12.4795], mapZoom: 14, locations: [], timeline: [{ time: "10:00", title: "יום חופשי לסיור בפיאצות ובאתרי החובה", desc: "סיור רגלי עצמאי במדרגות הספרדיות, מזרקת טרווי וסביבת המלון המרכזי.", icon: "fa-walking" }] },
+            7: {
+                title: "יום 7: סדנת בישול פרטית עם שף",
+                subtitle: "רומא - רובע סאנלורנצו",
+                badge: "חוויה קולינרית",
+                mapCenter: [41.8966, 12.5186],
+                locations: [
+                    { name: "ANTICA CUCINA - Via dei Sabelli 58", coords: [41.8966, 12.5186], desc: "סדנת בישול עם שף עמנואל" }
+                ],
+                mapZoom: 14,
+                timeline: [
+                    { 
+                        time: "11:30", 
+                        title: "סדנת בישול איטלקית אותנטית - ANTICA CUCINA", 
+                        desc: `<div class="bg-emerald-50/60 border border-emerald-100 p-4 rounded-xl text-sm space-y-1.5 font-sans text-slate-700">
+                                <div><strong>שם הסדנה:</strong> ANTICA CUCINA עם השף עמנואל (Chef Emanuele Pastificio Faini)</div>
+                                <div><strong>שעות פעילות:</strong> 11:30 - 14:30</div>
+                                <div><strong>כתובת מדויקת:</strong> Via dei Sabelli 58, 00185 – Roma – Italia</div>
+                                <div><strong>טלפון ליצירת קשר:</strong> +39 347 7863 993</div>
+                                <div><strong>דואר אלקטרוני:</strong> info@pastificiofaini.com</div>
+                               </div>`, 
+                        icon: "fa-mortar-pestle" 
+                    }
+                ]
+            },
+            8: {
+                title: "יום 8: סיום החופשה וטיסה חזרה לישראל",
+                subtitle: "רומא (FCO) ← תל אביב (TLV)",
+                badge: "טיסה חזור",
+                mapCenter: [41.8003, 12.2389],
+                mapZoom: 11,
+                locations: [],
+                timeline: [
+                    { 
+                        time: "10:00", 
+                        title: "העברה פרטית לשדה התעופה", 
+                        desc: `<div class="bg-slate-100 p-4 rounded-xl border border-slate-200/60 text-sm font-sans text-slate-700">
+                                <div><strong>סוג שירות:</strong> העברה פרטית ממודרכת (Departure Transfer)</div>
+                                <div><strong>מסלול:</strong> איסוף מלובי Poesis Experience Hotel ← נמל תעופה פיומיצ'ינו (FCO)</div>
+                               </div>`, 
+                        icon: "fa-car" 
+                    },
+                    { 
+                        time: "13:00", 
+                        title: "טיסת אל על חזור לישראל", 
+                        desc: `<div class="bg-slate-100 p-4 rounded-xl border border-slate-200/60 text-sm space-y-1 font-sans text-slate-700">
+                                <div><strong>חברת תעופה וקוד טיסה:</strong> אל על | LY 286</div>
+                                <div><strong>נתיב:</strong> רומא (FCO) ← תל אביב (TLV)</div>
+                                <div><strong>שעת המראה:</strong> 13:00 | <strong>שעת נחיתה בארץ:</strong> 17:20</div>
+                               </div>`, 
+                        icon: "fa-plane-departure" 
+                    }
+                ]
+            }
+        };
+
+        function initMap() {
+            mapInstance = L.map('mapViewport', { scrollWheelZoom: false }).setView(itineraryData[1].mapCenter, itineraryData[1].mapZoom);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapInstance);
+            updateMapMarkers(1);
+        }
+
+        function updateMapMarkers(dayId) {
+            const data = itineraryData[dayId]; if (!data || !mapInstance) return;
+            activeMarkers.forEach(m => mapInstance.removeLayer(m)); activeMarkers = [];
+            mapInstance.flyTo(data.mapCenter, data.mapZoom, { animate: true, duration: 1.2 });
+            data.locations.forEach(loc => {
+                const marker = L.marker(loc.coords).addTo(mapInstance);
+                marker.bindPopup(`<div class="text-right font-sans" style="direction:rtl;"><strong>${loc.name}</strong><br><span class="text-xs">${loc.desc}</span></div>`);
+                activeMarkers.push(marker);
+            });
+        }
+
+        function renderTimeline(dayId) {
+            const data = itineraryData[dayId]; const container = document.getElementById('timelineContainer'); container.innerHTML = '';
+            data.timeline.forEach(event => {
+                const step = document.createElement('div'); step.className = "relative flex items-start gap-4 group";
+                step.innerHTML = `
+                    <div class="absolute -right-2 transform translate-x-1/2 w-4 h-4 bg-white border-2 border-sky-500 rounded-full group-hover:bg-sky-600 z-20"></div>
+                    <div class="bg-slate-50/60 border border-slate-100 rounded-xl p-5 flex-1 shadow-sm">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded-md font-sans text-sm">${event.time}</span>
+                            <h4 class="font-bold text-slate-900 text-base sm:text-lg">${event.title}</h4>
+                            <i class="fa-solid ${event.icon} text-sm text-slate-400 mr-auto"></i>
+                        </div>
+                        <div class="text-sm text-slate-600 leading-relaxed">${event.desc}</div>
+                    </div>
+                `;
+                container.appendChild(step);
+            });
+            document.getElementById('currentDayTitle').innerText = data.title;
+            document.getElementById('currentDaySubtitle').innerHTML = `<i class="fa-solid fa-location-dot ml-1"></i> ${data.subtitle}`;
+            document.getElementById('currentDayBadge').innerText = data.badge;
+        }
+
+        function switchDay(dayId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 text-slate-600 hover:text-slate-900 hover:bg-white/50";
+                btn.querySelector('span:first-child').className = "block text-xs text-slate-400 font-normal";
+            });
+            const activeBtn = document.getElementById(`tab-${dayId}`);
+            if (activeBtn) {
+                activeBtn.className = "tab-btn px-4 py-3 text-sm font-semibold rounded-xl whitespace-nowrap transition-all duration-200 flex-1 bg-white text-sky-950 shadow-sm border border-slate-200/50";
+                activeBtn.querySelector('span:first-child').className = "block text-xs text-sky-600 font-normal";
+            }
+            activeDay = dayId; renderTimeline(dayId); updateMapMarkers(dayId);
+        }
+
+        window.onload = function() { initMap(); renderTimeline(1); };
+    </script>
+</body>
+</html>
